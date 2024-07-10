@@ -9,7 +9,6 @@ import UIKit
 
 final class HomeViewController: UIViewController, UISearchBarDelegate {
     
-    
     // MARK: - Subviews
     
     private lazy var searchBar: UISearchBar = {
@@ -21,7 +20,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         return searchBar
     }()
     
-    // MARK: - API ??
+    // MARK: - API
     
     override func viewDidLoad() {
         super.viewDidLoad()
