@@ -37,7 +37,6 @@ final class WeatherDetailsViewController: UIViewController {
     
     private func setupView() {
         setupNavBar()
-        
         view.backgroundColor = .secondarySystemBackground
     }
     
