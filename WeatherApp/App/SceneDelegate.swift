@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let citiesRepository = CitiesRepository(networkingService: NetworkingService())
+        let citiesRepository = CitiesRepository(networkingService: CitiesNetworkingService())
         
         let mainViewController = HomeViewController(citiesRepository: citiesRepository)
         let navigationController = UINavigationController(rootViewController: mainViewController)

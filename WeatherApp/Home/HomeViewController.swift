@@ -109,9 +109,18 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
                     tableView.reloadData()
                 } else {
                     viewContainer.view = InformationView(headline: "Brak wyników",
-                                                         subheadline: "Brak wyników dla \"\(searchBar.text ?? "")\"",
-                                                         systemImageName: .search)
+                                                         subheadline: "Brak wyników dla \"\(searchBar.text ?? .empty)\"",
+                                                         systemImageName: .searchLoop)
                 }
+            }
+            .store(in: &cancellables)
+        
+        citiesRepository.downloadingErrorOccured
+            .sink { [weak self] in
+                guard let self else { return }
+                viewContainer.view = InformationView(headline: "Wystąpił błąd pobierania",
+                                                     subheadline: "Spróbuj ponownie później",
+                                                     systemImageName: .exclamationMark)
             }
             .store(in: &cancellables)
     }

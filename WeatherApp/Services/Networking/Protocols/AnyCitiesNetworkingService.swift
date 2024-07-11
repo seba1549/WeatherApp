@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AnyNetworkingService {
+protocol AnyCitiesNetworkingService {
     
     /// Method to load a list of cities from a resource.
     ///

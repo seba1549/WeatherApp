@@ -5,34 +5,35 @@
 //  Created by Sebastian Maludziński on 10/07/2024.
 //
 
-import Foundation
 
-// TODO: - Klasa do refactoru
-final class NetworkingService: AnyNetworkingService {
+import Foundation
+import OSLog
+
+/// Networking set up for city-related enquiries.
+final class CitiesNetworkingService: AnyCitiesNetworkingService {
     
     // MARK: - API
     
     func fetchCities(phrase: String, completionHandler: @escaping (Result<[City], NetworkingError>) -> ()) {
-        let link = "https://dataservice.accuweather.com/locations/v1/search?apikey=xgozIFzmA3lCWQZzIdkBuEM1G8C6Z6Vi&q=\(phrase)&language=pl"
-        guard let url = URL(string: link) else {
+        guard let urlRequest = URLRequestBuilder.createLocationsRequest(for: phrase) else {
             completionHandler(.failure(.wrongURL))
             return
         }
         
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        URLSession.shared.dataTask(with: urlRequest) {data, response, error in
             guard error == nil,
-                  let response = response as? HTTPURLResponse,
-                  response.statusCode >= 200 && response.statusCode < 300,
                   let data = data else {
-                      completionHandler(.failure(.downloadingError))
-                      return
-                  }
+                os_log("NetworkingService error:", error?.localizedDescription ?? .empty)
+                completionHandler(.failure(.downloadingError))
+                return
+            }
             
             do {
+                try ResponseValidator.validate(response)
                 let decodedData = try JSONDecoder().decode([City].self, from: data)
                 completionHandler(.success(decodedData))
             } catch let error {
-                print("Decoding error: \(error)")
+                os_log("NetworkingService error:", error.localizedDescription)
                 completionHandler(.failure(.downloadingError))
             }
         }

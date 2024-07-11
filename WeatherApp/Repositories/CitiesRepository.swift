@@ -13,7 +13,7 @@ final class CitiesRepository {
     
     // MARK: - Properties
     
-    private let networkingService: AnyNetworkingService
+    private let networkingService: AnyCitiesNetworkingService
     private(set) var cities = [City]()
     
     private var cancellables = [AnyCancellable]()
@@ -26,9 +26,13 @@ final class CitiesRepository {
     lazy var citiesListChanged = _citiesListChanged.eraseToAnyPublisher()
     private lazy var _citiesListChanged = PassthroughSubject<Void, Never>()
     
+    lazy var downloadingErrorOccured = _downloadingErrorOccured.eraseToAnyPublisher()
+    private lazy var _downloadingErrorOccured = PassthroughSubject<Void, Never>()
+
+    
     // MARK: - Lifecycle
     
-    init(networkingService: AnyNetworkingService) {
+    init(networkingService: AnyCitiesNetworkingService) {
         self.networkingService = networkingService
         bind()
     }
@@ -53,21 +57,22 @@ final class CitiesRepository {
                     return
                 }
                 
-                self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
-                               City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
-                self._citiesListChanged.send()
+//                self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
+//                               City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
+//                self._citiesListChanged.send()
                 
-//                networkingService.fetchCities(phrase: phrase) { result in
-//                    switch result {
-//                    case let .success(cities):
-//                        self.cities = cities
-//                    case let .failure(error):
-//                        print("Error:", error.localizedDescription)
-//                        self.cities = []
-//                    }
-//                    
+                networkingService.fetchCities(phrase: phrase) { result in
+                    switch result {
+                    case let .success(cities):
+                        self.cities = cities
+                        self._citiesListChanged.send()
+                    case .failure:
+                        self.cities = []
+                        self._downloadingErrorOccured.send()
+                    }
+                    
 //                    self._citiesListChanged.send()
-//                }
+                }
             }
             .store(in: &cancellables)
     }

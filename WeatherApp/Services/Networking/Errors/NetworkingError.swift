@@ -12,18 +12,22 @@ enum NetworkingError: LocalizedError {
     
     // MARK: - Cases
     
-    /// Error resulting from an incorrect URL.
-    case wrongURL
-    
-    /// Error resulting from failed data download.
+    /// An error occurring when, for some reason, the data could not be downloaded.
     case downloadingError
+    
+    /// Error occurring when the server response is incorrect.
+    case wrongServerResponse
+    
+    /// Error occurring when the URL is invalid.
+    case wrongURL
     
     // MARK: - Properties
     
     var errorDescription: String? {
         switch self {
-        case .wrongURL: NSLocalizedString("The URL isn't correct!", comment: "")
-        case .downloadingError: NSLocalizedString("There is a problem with data downloading!", comment: "")
+        case .downloadingError: NSLocalizedString("An error occurred while downloading data.", comment: .empty)
+        case .wrongServerResponse: NSLocalizedString("Incorrect server response.", comment: .empty)
+        case .wrongURL: NSLocalizedString("The URL used in the query is not correct.", comment: .empty)
         }
     }
     

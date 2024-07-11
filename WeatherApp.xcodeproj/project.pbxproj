@@ -16,8 +16,8 @@
 		B96197D92C3ED7500038BB23 /* AdministrativeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197D82C3ED7500038BB23 /* AdministrativeArea.swift */; };
 		B96197DB2C3ED83C0038BB23 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197DA2C3ED83C0038BB23 /* Country.swift */; };
 		B96197E02C3EDD690038BB23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197DF2C3EDD690038BB23 /* Constants.swift */; };
-		B96197E22C3EDDEE0038BB23 /* AnyNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197E12C3EDDEE0038BB23 /* AnyNetworkingService.swift */; };
-		B96197E42C3EDEAA0038BB23 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197E32C3EDEAA0038BB23 /* NetworkingService.swift */; };
+		B96197E22C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197E12C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift */; };
+		B96197E42C3EDEAA0038BB23 /* CitiesNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197E32C3EDEAA0038BB23 /* CitiesNetworkingService.swift */; };
 		B96197E92C3EE03D0038BB23 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197E82C3EE03D0038BB23 /* NetworkingError.swift */; };
 		B96197EC2C3EE5C60038BB23 /* CitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197EB2C3EE5C60038BB23 /* CitiesRepository.swift */; };
 		B96197EF2C3EE97A0038BB23 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197EE2C3EE97A0038BB23 /* HomeViewController+TableView.swift */; };
@@ -26,6 +26,10 @@
 		B96197F82C3F1AEC0038BB23 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F72C3F1AEC0038BB23 /* InformationView.swift */; };
 		B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F92C3FD7AB0038BB23 /* AppIcon.swift */; };
 		B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */; };
+		B96197FF2C3FF3250038BB23 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197FE2C3FF3250038BB23 /* URLProvider.swift */; };
+		B96198012C3FF3550038BB23 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198002C3FF3550038BB23 /* URLRequestBuilder.swift */; };
+		B96198032C3FF5680038BB23 /* ResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198022C3FF5680038BB23 /* ResponseValidator.swift */; };
+		B96198062C3FF9D60038BB23 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198052C3FF9D60038BB23 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +44,8 @@
 		B96197D82C3ED7500038BB23 /* AdministrativeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrativeArea.swift; sourceTree = "<group>"; };
 		B96197DA2C3ED83C0038BB23 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B96197DF2C3EDD690038BB23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B96197E12C3EDDEE0038BB23 /* AnyNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyNetworkingService.swift; sourceTree = "<group>"; };
-		B96197E32C3EDEAA0038BB23 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		B96197E12C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCitiesNetworkingService.swift; sourceTree = "<group>"; };
+		B96197E32C3EDEAA0038BB23 /* CitiesNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesNetworkingService.swift; sourceTree = "<group>"; };
 		B96197E82C3EE03D0038BB23 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		B96197EB2C3EE5C60038BB23 /* CitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesRepository.swift; sourceTree = "<group>"; };
 		B96197EE2C3EE97A0038BB23 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -50,6 +54,10 @@
 		B96197F72C3F1AEC0038BB23 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		B96197F92C3FD7AB0038BB23 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		B96197FE2C3FF3250038BB23 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		B96198002C3FF3550038BB23 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		B96198022C3FF5680038BB23 /* ResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseValidator.swift; sourceTree = "<group>"; };
+		B96198052C3FF9D60038BB23 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		B96197BB2C3EC8BA0038BB23 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				B96198042C3FF9C90038BB23 /* Extensions */,
 				B96197F02C3EEA680038BB23 /* Views */,
 				B96197ED2C3EE94D0038BB23 /* Home */,
 				B96197EA2C3EE5880038BB23 /* Repositories */,
@@ -134,9 +143,10 @@
 		B96197DD2C3ED9B30038BB23 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B96197FD2C3FF31B0038BB23 /* Utilities */,
 				B96197E62C3EE01E0038BB23 /* Errors */,
 				B96197E52C3EE0100038BB23 /* Protocols */,
-				B96197E32C3EDEAA0038BB23 /* NetworkingService.swift */,
+				B96197E32C3EDEAA0038BB23 /* CitiesNetworkingService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -154,7 +164,7 @@
 		B96197E52C3EE0100038BB23 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B96197E12C3EDDEE0038BB23 /* AnyNetworkingService.swift */,
+				B96197E12C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -192,6 +202,24 @@
 				B96197F72C3F1AEC0038BB23 /* InformationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B96197FD2C3FF31B0038BB23 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B96197FE2C3FF3250038BB23 /* URLProvider.swift */,
+				B96198002C3FF3550038BB23 /* URLRequestBuilder.swift */,
+				B96198022C3FF5680038BB23 /* ResponseValidator.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B96198042C3FF9C90038BB23 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B96198052C3FF9D60038BB23 /* String+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,21 +293,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96197C12C3EC8BA0038BB23 /* HomeViewController.swift in Sources */,
+				B96198062C3FF9D60038BB23 /* String+Extension.swift in Sources */,
 				B96197F82C3F1AEC0038BB23 /* InformationView.swift in Sources */,
 				B96197BD2C3EC8BA0038BB23 /* AppDelegate.swift in Sources */,
 				B96197D92C3ED7500038BB23 /* AdministrativeArea.swift in Sources */,
 				B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */,
 				B96197EF2C3EE97A0038BB23 /* HomeViewController+TableView.swift in Sources */,
 				B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */,
-				B96197E42C3EDEAA0038BB23 /* NetworkingService.swift in Sources */,
+				B96197E42C3EDEAA0038BB23 /* CitiesNetworkingService.swift in Sources */,
 				B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */,
+				B96198012C3FF3550038BB23 /* URLRequestBuilder.swift in Sources */,
 				B96197E92C3EE03D0038BB23 /* NetworkingError.swift in Sources */,
 				B96197D72C3ED6A40038BB23 /* City.swift in Sources */,
 				B96197F42C3F19510038BB23 /* ViewState.swift in Sources */,
 				B96197E02C3EDD690038BB23 /* Constants.swift in Sources */,
 				B96197EC2C3EE5C60038BB23 /* CitiesRepository.swift in Sources */,
+				B96198032C3FF5680038BB23 /* ResponseValidator.swift in Sources */,
+				B96197FF2C3FF3250038BB23 /* URLProvider.swift in Sources */,
 				B96197DB2C3ED83C0038BB23 /* Country.swift in Sources */,
-				B96197E22C3EDDEE0038BB23 /* AnyNetworkingService.swift in Sources */,
+				B96197E22C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift in Sources */,
 				B96197BF2C3EC8BA0038BB23 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
