@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+/// Extension containing all search-related methods
 extension HomeViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

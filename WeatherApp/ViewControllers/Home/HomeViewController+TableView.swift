@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// Extension containing all TableView-related methods
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +25,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: - dodać obsługę otwierania podglądów
+        let city = citiesRepository.cities[indexPath.row]
+        let viewController = WeatherDetailsViewController(city: city)
+        viewController.delegate = self
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        showDetailViewController(navigationController, sender: .none)
     }
     
 }
