@@ -47,6 +47,7 @@
 		B96198292C405E1B0038BB23 /* TemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198282C405E1B0038BB23 /* TemperatureRange.swift */; };
 		B961982B2C405E3A0038BB23 /* Minimum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961982A2C405E3A0038BB23 /* Minimum.swift */; };
 		B961982D2C405E630038BB23 /* Maximum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961982C2C405E630038BB23 /* Maximum.swift */; };
+		B961982F2C4064380038BB23 /* WeatherDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961982E2C4064380038BB23 /* WeatherDataRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		B96198282C405E1B0038BB23 /* TemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureRange.swift; sourceTree = "<group>"; };
 		B961982A2C405E3A0038BB23 /* Minimum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minimum.swift; sourceTree = "<group>"; };
 		B961982C2C405E630038BB23 /* Maximum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maximum.swift; sourceTree = "<group>"; };
+		B961982E2C4064380038BB23 /* WeatherDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				B96197EB2C3EE5C60038BB23 /* CitiesRepository.swift */,
+				B961982E2C4064380038BB23 /* WeatherDataRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				B96198172C405CD10038BB23 /* Metric.swift in Sources */,
 				B961981B2C405D190038BB23 /* RealFeelMetric.swift in Sources */,
 				B961981F2C405D5F0038BB23 /* Direction.swift in Sources */,
+				B961982F2C4064380038BB23 /* WeatherDataRepository.swift in Sources */,
 				B961980C2C402B970038BB23 /* HomeViewController+WeatherDetailsDelegate.swift in Sources */,
 				B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */,
 				B961982B2C405E3A0038BB23 /* Minimum.swift in Sources */,

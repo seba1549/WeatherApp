@@ -5,21 +5,26 @@
 //  Created by Sebastian Maludziński on 11/07/2024.
 //
 
+import Combine
 import UIKit
 
 final class WeatherDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let repository = WeatherDataRepository()
+    private let city: City
+    
     var delegate: WeatherDetailsDelegate?
     
-    private let city: City
+    private var cancellables = [AnyCancellable]()
     
     // MARK: - Lifecycle
     
     init(city: City) {
         self.city = city
         super.init(nibName: nil, bundle: nil)
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +36,7 @@ final class WeatherDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        repository.fetchWeatherData(for: city.key)
     }
     
     // MARK: - Methods
@@ -44,9 +50,24 @@ final class WeatherDetailsViewController: UIViewController {
         let closeBarButtonItem = UIBarButtonItem(title: "Anuluj", style: .plain, target: self, action: #selector(popViewController))
         navigationItem.leftBarButtonItem = closeBarButtonItem
     }
+    
+    private func configureViewWithWeatherDate() {
+        guard let weatherData = repository.weatherData else { return }
+        title = weatherData.weatherText
+        // TODO: - Tutaj trzeba zrobić konfigurację widoku po pobraniu danych.
+    }
 
     @objc private func popViewController() {
         delegate?.didDissmisView()
+    }
+    
+    private func bind() {
+        repository.weatherDataFetched
+            .sink { [weak self] weatherData in
+                guard let self else { return }
+                configureViewWithWeatherDate()
+            }
+            .store(in: &cancellables)
     }
     
 }
