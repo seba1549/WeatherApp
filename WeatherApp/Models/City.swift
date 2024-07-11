@@ -15,6 +15,12 @@ struct City: Decodable {
     /// The administrative area to which a particular city belongs.
     let area: AdministrativeArea
     
+    /// The country to which a particular city belongs.
+    let country: Country
+    
+    /// Location key, needed to download weather data for the selected location.
+    let key: String
+    
     /// Name of the city.
     let name: String
     
@@ -26,6 +32,8 @@ struct City: Decodable {
     private enum CodingKeys: String, CodingKey {
         
         case area = "AdministrativeArea"
+        case country = "Country"
+        case key = "Key"
         case name = "LocalizedName"
         case rank = "Rank"
         
