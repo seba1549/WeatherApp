@@ -1,0 +1,31 @@
+//
+//  HomeViewController+SearchBar.swift
+//  WeatherApp
+//
+//  Created by Sebastian Maludziński on 11/07/2024.
+//
+
+import UIKit
+import Foundation
+
+extension HomeViewController {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        citiesRepository.searchForCities(with: searchText)
+    }
+    
+    // We use [[:alpha:]] because we want to be able to use the letters of all languages - not just Polish.
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        do {
+            let regex = try NSRegularExpression(pattern: "[[:alpha:]]")
+            guard regex.firstMatch(in: text, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, text.count)) != nil else {
+                return false
+            }
+            
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+}

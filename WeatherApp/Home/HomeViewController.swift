@@ -23,7 +23,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     private lazy var tableView = UITableView()
     private lazy var viewContainer = UIViewController()
     
-    private lazy var searchBar: UISearchBar = {
+    lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
@@ -49,12 +49,6 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         bind()
         setupView()
-    }
-    
-    // MARK: - API
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        citiesRepository.searchForCities(with: searchText)
     }
     
     // MARK: - Methods

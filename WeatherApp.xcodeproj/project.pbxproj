@@ -25,6 +25,7 @@
 		B96197F42C3F19510038BB23 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F32C3F19510038BB23 /* ViewState.swift */; };
 		B96197F82C3F1AEC0038BB23 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F72C3F1AEC0038BB23 /* InformationView.swift */; };
 		B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F92C3FD7AB0038BB23 /* AppIcon.swift */; };
+		B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B96197F32C3F19510038BB23 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		B96197F72C3F1AEC0038BB23 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		B96197F92C3FD7AB0038BB23 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchBar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			children = (
 				B96197C02C3EC8BA0038BB23 /* HomeViewController.swift */,
 				B96197EE2C3EE97A0038BB23 /* HomeViewController+TableView.swift */,
+				B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				B96197D92C3ED7500038BB23 /* AdministrativeArea.swift in Sources */,
 				B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */,
 				B96197EF2C3EE97A0038BB23 /* HomeViewController+TableView.swift in Sources */,
+				B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */,
 				B96197E42C3EDEAA0038BB23 /* NetworkingService.swift in Sources */,
 				B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */,
 				B96197E92C3EE03D0038BB23 /* NetworkingError.swift in Sources */,
