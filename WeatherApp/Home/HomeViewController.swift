@@ -117,9 +117,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func createEmptyListView() -> UIView {
-        // To do poprawy trochę
-        InformationView(headline: "",
-                        subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
+        InformationView(subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
     }
     
 }

@@ -12,7 +12,7 @@ final class InformationView: UIView {
     
     // MARK: - Properties
     
-    private let headline: String
+    private let headline: String?
     private let subheadline: String?
     private let systemImageName: AppIcon?
     
@@ -63,7 +63,7 @@ final class InformationView: UIView {
     
     // MARK: - Lifecycle
     
-    init(headline: String, subheadline: String? = nil, systemImageName: AppIcon? = nil) {
+    init(headline: String? = nil, subheadline: String? = nil, systemImageName: AppIcon? = nil) {
         self.headline = headline
         self.subheadline = subheadline
         self.systemImageName = systemImageName
