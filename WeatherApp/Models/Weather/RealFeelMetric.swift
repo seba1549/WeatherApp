@@ -14,7 +14,6 @@ struct RealFeelMetric: Decodable {
     
     let value: Double
     let unit: String
-    let phrase: String
     
     // MARK: - CodingKeys
     
@@ -22,7 +21,6 @@ struct RealFeelMetric: Decodable {
         
         case value = "Value"
         case unit = "Unit"
-        case phrase = "Phrase"
         
     }
     

@@ -10,5 +10,6 @@ import Foundation
 extension String {
     
     static let empty = ""
+    static let dash = "-"
     
 }

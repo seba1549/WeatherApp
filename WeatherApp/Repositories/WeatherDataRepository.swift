@@ -13,7 +13,6 @@ final class WeatherDataRepository {
     // MARK: - Properties
     
     private(set) var weatherData: WeatherData?
-    
     private var cancellables = [AnyCancellable]()
     
     // MARK: - Publishers
@@ -58,13 +57,12 @@ final class WeatherDataRepository {
             relativeHumidity: 52,
             cloudCover: 76,
             temperature: Temperature(
-                metric: Metric(value: 27.9, unit: "C")
+                metric: Metric(value: 7.9, unit: "C")
             ),
             realFeelTemperature: RealFeelTemperature(
-                metric: RealFeelMetric(value: 30.5, unit: "C", phrase: "Bardzo ciepło")
+                metric: RealFeelMetric(value: 30.5, unit: "C")
             ),
             wind: Wind(
-                direction: Direction(localized: "WNW"),
                 speed: Speed(
                     metric: Metric(value: 12.6, unit: "km/h")
                 )

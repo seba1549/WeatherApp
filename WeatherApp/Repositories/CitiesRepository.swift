@@ -29,6 +29,8 @@ final class CitiesRepository {
     lazy var downloadingErrorOccured = _downloadingErrorOccured.eraseToAnyPublisher()
     private lazy var _downloadingErrorOccured = PassthroughSubject<Void, Never>()
 
+    lazy var citiesAreDownloading = _citiesAreDownloading.eraseToAnyPublisher()
+    private lazy var _citiesAreDownloading = PassthroughSubject<Void, Never>()
     
     // MARK: - Lifecycle
     
@@ -47,7 +49,7 @@ final class CitiesRepository {
     
     private func bind() {
         userSearchedForCities
-            .debounce(for: .milliseconds(200), scheduler: DispatchQueue.main)
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .removeDuplicates()
             .sink { [weak self] phrase in
                 guard let self = self else { return }
@@ -57,6 +59,7 @@ final class CitiesRepository {
                     return
                 }
                 
+                _citiesAreDownloading.send()
                 self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
                                City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
                 self._citiesListChanged.send()

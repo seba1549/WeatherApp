@@ -15,16 +15,14 @@ final class InformationView: UIView {
     private let headline: String?
     private let subheadline: String?
     private let systemImageName: AppIcon?
-    
     private let imageSize: CGFloat = 50
     
-    // MARK: - Views
+    // MARK: - Subviews
     
     private lazy var mainStack: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.backgroundColor = .clear
         stack.spacing = 5
         return stack
     }()
@@ -32,7 +30,6 @@ final class InformationView: UIView {
     private lazy var imageContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .clear
         return view
     }()
     
@@ -46,8 +43,6 @@ final class InformationView: UIView {
     private lazy var headlineLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.numberOfLines = 0
-        label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }()
@@ -55,7 +50,6 @@ final class InformationView: UIView {
     private lazy var subheadlineLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.numberOfLines = 0
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label

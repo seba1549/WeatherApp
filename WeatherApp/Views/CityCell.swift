@@ -28,15 +28,12 @@ final class CityCell: UITableViewCell {
     
     private lazy var cityNameLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
     private lazy var areaNameLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 12, weight: .regular)
         return label
@@ -63,8 +60,7 @@ final class CityCell: UITableViewCell {
     // MARK: - Methods
     
     private func setupView() {
-        self.backgroundColor = .clear
-        
+        backgroundColor = .secondarySystemBackground
         contentView.addSubview(mainStack)
         
         mainStack.addArrangedSubview(cityNameLabel)

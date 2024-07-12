@@ -19,6 +19,14 @@ final class WeatherDetailsViewController: UIViewController {
     
     private var cancellables = [AnyCancellable]()
     
+    // MARK: - Subviews
+    
+    private lazy var viewContainer: UIViewController = {
+        let viewController = UIViewController()
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        return viewController
+    }()
+    
     // MARK: - Lifecycle
     
     init(city: City) {
@@ -44,6 +52,19 @@ final class WeatherDetailsViewController: UIViewController {
     private func setupView() {
         setupNavBar()
         view.backgroundColor = .secondarySystemBackground
+        
+        addChild(viewContainer)
+        didMove(toParent: self)
+        view.addSubview(viewContainer.view)
+        
+        NSLayoutConstraint.activate([
+            viewContainer.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            viewContainer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            viewContainer.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            viewContainer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        viewContainer.view = LoadingView()
     }
     
     private func setupNavBar() {
@@ -53,8 +74,7 @@ final class WeatherDetailsViewController: UIViewController {
     
     private func configureViewWithWeatherDate() {
         guard let weatherData = repository.weatherData else { return }
-        title = weatherData.weatherText
-        // TODO: - Tutaj trzeba zrobić konfigurację widoku po pobraniu danych.
+        viewContainer.view = WeatherDetailsView(city: city, weatherData: weatherData)
     }
 
     @objc private func popViewController() {

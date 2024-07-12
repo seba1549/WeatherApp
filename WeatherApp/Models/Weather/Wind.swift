@@ -12,14 +12,12 @@ struct Wind: Decodable {
     
     // MARK: - Properties
     
-    let direction: Direction
     let speed: Speed
     
     // MARK: - CodingKeys
     
     enum CodingKeys: String, CodingKey {
         
-        case direction = "Direction"
         case speed = "Speed"
         
     }

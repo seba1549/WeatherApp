@@ -18,8 +18,6 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Subviews
     
-    private var viewState = ViewState.loading
-    
     private lazy var tableView = UITableView()
     private lazy var viewContainer = UIViewController()
     
@@ -56,7 +54,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     private func setupView() {
         setupTableView()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         title = "WeatherApp"
         
         view.addSubview(searchBar)
@@ -84,9 +82,9 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         tableView.dataSource = self
         tableView.register(CityCell.self, forCellReuseIdentifier: CityCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = .secondarySystemBackground
     }
     
     private func bind() {
@@ -121,6 +119,13 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
                 viewContainer.view = InformationView(headline: "Wystąpił błąd pobierania",
                                                      subheadline: "Spróbuj ponownie później",
                                                      systemImageName: .exclamationMark)
+            }
+            .store(in: &cancellables)
+        
+        citiesRepository.citiesAreDownloading
+            .sink { [weak self] in
+                guard let self else { return }
+                viewContainer.view = LoadingView()
             }
             .store(in: &cancellables)
     }
