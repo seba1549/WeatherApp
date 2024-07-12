@@ -23,7 +23,7 @@ final class CitiesNetworkingService: AnyCitiesNetworkingService {
         URLSession.shared.dataTask(with: urlRequest) {data, response, error in
             guard error == nil,
                   let data = data else {
-                os_log("NetworkingService error:", error?.localizedDescription ?? .empty)
+                os_log("CitiesNetworkingService error:", error?.localizedDescription ?? .empty)
                 completionHandler(.failure(.downloadingError))
                 return
             }
@@ -33,7 +33,7 @@ final class CitiesNetworkingService: AnyCitiesNetworkingService {
                 let decodedData = try JSONDecoder().decode([City].self, from: data)
                 completionHandler(.success(decodedData))
             } catch let error {
-                os_log("NetworkingService error:", error.localizedDescription)
+                os_log("CitiesNetworkingService error:", error.localizedDescription)
                 completionHandler(.failure(.downloadingError))
             }
         }

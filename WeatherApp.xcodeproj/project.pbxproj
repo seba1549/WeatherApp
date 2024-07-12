@@ -49,6 +49,8 @@
 		B96198312C412FDF0038BB23 /* WeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198302C412FDF0038BB23 /* WeatherDetailsView.swift */; };
 		B96198332C4154400038BB23 /* KeyAndValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198322C4154400038BB23 /* KeyAndValueView.swift */; };
 		B96198352C418FAA0038BB23 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198342C418FAA0038BB23 /* LoadingView.swift */; };
+		B96198372C419CE00038BB23 /* WeatherDataNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198362C419CE00038BB23 /* WeatherDataNetworkingService.swift */; };
+		B96198392C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198382C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,8 @@
 		B96198302C412FDF0038BB23 /* WeatherDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsView.swift; sourceTree = "<group>"; };
 		B96198322C4154400038BB23 /* KeyAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyAndValueView.swift; sourceTree = "<group>"; };
 		B96198342C418FAA0038BB23 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B96198362C419CE00038BB23 /* WeatherDataNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataNetworkingService.swift; sourceTree = "<group>"; };
+		B96198382C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyWeatherDataNetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				B96197E62C3EE01E0038BB23 /* Errors */,
 				B96197E52C3EE0100038BB23 /* Protocols */,
 				B96197E32C3EDEAA0038BB23 /* CitiesNetworkingService.swift */,
+				B96198362C419CE00038BB23 /* WeatherDataNetworkingService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B96197E12C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift */,
+				B96198382C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				B96198172C405CD10038BB23 /* Metric.swift in Sources */,
 				B961981B2C405D190038BB23 /* RealFeelMetric.swift in Sources */,
 				B961982F2C4064380038BB23 /* WeatherDataRepository.swift in Sources */,
+				B96198372C419CE00038BB23 /* WeatherDataNetworkingService.swift in Sources */,
 				B961980C2C402B970038BB23 /* HomeViewController+WeatherDetailsDelegate.swift in Sources */,
 				B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */,
 				B961982B2C405E3A0038BB23 /* Minimum.swift in Sources */,
@@ -427,6 +434,7 @@
 				B96198152C405CA90038BB23 /* Temperature.swift in Sources */,
 				B96198132C40308A0038BB23 /* WeatherData.swift in Sources */,
 				B96197E22C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift in Sources */,
+				B96198392C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift in Sources */,
 				B96198192C405CEB0038BB23 /* RealFeelTemperature.swift in Sources */,
 				B96197BF2C3EC8BA0038BB23 /* SceneDelegate.swift in Sources */,
 			);

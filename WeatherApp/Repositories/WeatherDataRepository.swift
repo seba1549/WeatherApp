@@ -12,6 +12,8 @@ final class WeatherDataRepository {
     
     // MARK: - Properties
     
+    private let networkingService = WeatherDataNetworkingService()
+    
     private(set) var weatherData: WeatherData?
     private var cancellables = [AnyCancellable]()
     
@@ -44,8 +46,20 @@ final class WeatherDataRepository {
         weatherDataRequested
             .sink { [weak self] cityKey in
                 guard let self else { return }
-                weatherData = createMockWeatherData()
-                _weatherDataFetched.send()
+                
+                networkingService.fetchWeatherData(cityKey: cityKey) { result in
+                    switch result {
+                    case let .success(weatherData):
+                        self.weatherData = weatherData
+                        self._weatherDataFetched.send()
+                    case .failure:
+                        self.weatherData = nil
+                        self._downloadingErrorOccured.send()
+                    }
+                }
+                
+//                weatherData = createMockWeatherData()
+//                _weatherDataFetched.send()
             }
             .store(in: &cancellables)
     }

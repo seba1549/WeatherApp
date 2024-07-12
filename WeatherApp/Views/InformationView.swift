@@ -44,6 +44,7 @@ final class InformationView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -52,6 +53,7 @@ final class InformationView: UIView {
         label.textAlignment = .center
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.numberOfLines = 0
         return label
     }()
     

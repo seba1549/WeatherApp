@@ -60,20 +60,20 @@ final class CitiesRepository {
                 }
                 
                 _citiesAreDownloading.send()
-                self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
-                               City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
-                self._citiesListChanged.send()
+//                self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
+//                               City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
+//                self._citiesListChanged.send()
                 
-//                networkingService.fetchCities(phrase: phrase) { result in
-//                    switch result {
-//                    case let .success(cities):
-//                        self.cities = cities
-//                        self._citiesListChanged.send()
-//                    case .failure:
-//                        self.cities = []
-//                        self._downloadingErrorOccured.send()
-//                    }
-//                }
+                networkingService.fetchCities(phrase: phrase) { result in
+                    switch result {
+                    case let .success(cities):
+                        self.cities = cities
+                        self._citiesListChanged.send()
+                    case .failure:
+                        self.cities = []
+                        self._downloadingErrorOccured.send()
+                    }
+                }
             }
             .store(in: &cancellables)
     }

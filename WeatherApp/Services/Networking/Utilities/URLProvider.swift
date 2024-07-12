@@ -20,4 +20,8 @@ final class URLProvider {
         baseURL.appendingPathComponent("locations/v1/search")
     }
     
+    func createWeatherDataURL(with cityKey: String) -> URL {
+        baseURL.appendingPathComponent("currentconditions/v1/\(cityKey)")
+    }
+    
 }

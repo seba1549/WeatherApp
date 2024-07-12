@@ -8,6 +8,7 @@
 import Combine
 import UIKit
 
+/// ViewController for the weather detail view.
 final class WeatherDetailsViewController: UIViewController {
     
     // MARK: - Properties
@@ -74,7 +75,9 @@ final class WeatherDetailsViewController: UIViewController {
     
     private func configureViewWithWeatherDate() {
         guard let weatherData = repository.weatherData else { return }
-        viewContainer.view = WeatherDetailsView(city: city, weatherData: weatherData)
+        DispatchQueue.main.sync {
+            viewContainer.view = WeatherDetailsView(city: city, weatherData: weatherData)
+        }
     }
 
     @objc private func popViewController() {
