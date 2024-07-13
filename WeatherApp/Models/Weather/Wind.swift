@@ -8,7 +8,7 @@
 import Foundation
 
 /// Describes the wind parameters occurring at the selected location.
-struct Wind: Decodable {
+struct Wind: Decodable, Equatable {
     
     // MARK: - Properties
     

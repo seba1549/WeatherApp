@@ -13,7 +13,7 @@ final class WeatherDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let repository = WeatherDataRepository()
+    private let repository = WeatherDataRepository(networkingService: WeatherDataNetworkingService())
     private let city: City
     
     var delegate: WeatherDetailsDelegate?

@@ -8,7 +8,7 @@
 import Foundation
 
 /// Structure representing the city.
-struct City: Decodable {
+struct City: Decodable, Equatable {
     
     // MARK: - Properties
     

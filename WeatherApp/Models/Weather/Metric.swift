@@ -8,7 +8,7 @@
 import Foundation
 
 /// Includes information on values and units of measurement.
-struct Metric: Decodable {
+struct Metric: Decodable, Equatable {
     
     // MARK: - Properties
     

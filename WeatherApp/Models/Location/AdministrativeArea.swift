@@ -8,7 +8,7 @@
 import Foundation
 
 /// Structure representing the administrative area.
-struct AdministrativeArea: Decodable {
+struct AdministrativeArea: Decodable, Equatable {
     
     // MARK: - Properties
     

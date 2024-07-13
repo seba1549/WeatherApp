@@ -18,7 +18,7 @@ extension HomeViewController {
     // We use [[:alpha:]] because we want to be able to use the letters of all languages - not just Polish.
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         do {
-            let regex = try NSRegularExpression(pattern: "[[:alpha:]]")
+            let regex = try NSRegularExpression(pattern: "([[:alpha:]\\s])")
             guard regex.firstMatch(in: text, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, text.count)) != nil else {
                 return false
             }

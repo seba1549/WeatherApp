@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 /// Rounded value in specified units. May be nil.
-struct Temperature: Decodable {
+struct Temperature: Decodable, Equatable {
     
     // MARK: - Properties
     

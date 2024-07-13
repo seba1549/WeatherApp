@@ -8,7 +8,7 @@
 import Foundation
 
 /// Visibility.
-struct Visibility: Decodable {
+struct Visibility: Decodable, Equatable {
     
     // MARK: - Properties
     

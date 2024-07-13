@@ -9,7 +9,10 @@ import Foundation
 
 extension String {
     
+    /// Empty mark.
     static let empty = ""
+    
+    /// Dash mark.
     static let dash = "-"
     
 }

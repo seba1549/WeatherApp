@@ -8,7 +8,7 @@
 import Foundation
 
 /// It contains information about the highest temperature during the period.
-struct Maximum: Decodable {
+struct Maximum: Decodable, Equatable {
     
     // MARK: - Properties
     

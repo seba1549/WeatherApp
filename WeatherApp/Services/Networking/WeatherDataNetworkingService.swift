@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 
 /// Networking set up for city-related enquiries.
-final class WeatherDataNetworkingService {
+final class WeatherDataNetworkingService: AnyWeatherDataNetworkingService {
     
     // MARK: - API
     

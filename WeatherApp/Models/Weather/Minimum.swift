@@ -8,7 +8,7 @@
 import Foundation
 
 /// It contains information about the lowest temperature during the period.
-struct Minimum: Decodable {
+struct Minimum: Decodable, Equatable {
     
     // MARK: - Properties
     

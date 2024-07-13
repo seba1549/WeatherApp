@@ -8,7 +8,7 @@
 import Foundation
 
 /// Atmospheric pressure.
-struct Pressure: Decodable {
+struct Pressure: Decodable, Equatable {
     
     // MARK: - Properties
     

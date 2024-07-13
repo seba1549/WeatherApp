@@ -8,7 +8,7 @@
 import Foundation
 
 /// Structure representing the country.
-struct Country: Decodable {
+struct Country: Decodable, Equatable {
     
     // MARK: - Properties
     

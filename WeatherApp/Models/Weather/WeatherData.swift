@@ -8,7 +8,7 @@
 import Foundation
 
 /// It contains all the information about the weather at the selected location that is needed to build the view.
-struct WeatherData: Decodable {
+struct WeatherData: Decodable, Equatable {
     
     // MARK: - Properties
     

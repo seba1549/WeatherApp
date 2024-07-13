@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 /// Repository responsible for providing the relevant list of cities.
-final class CitiesRepository {
+final class CitiesRepository: AnyCitiesRepository {
     
     // MARK: - Properties
     
@@ -20,7 +20,7 @@ final class CitiesRepository {
     
     // MARK: - Publishers
     
-    private lazy var userSearchedForCities = _userSearchedForCities.eraseToAnyPublisher()
+    lazy var userSearchedForCities = _userSearchedForCities.eraseToAnyPublisher()
     private lazy var _userSearchedForCities = PassthroughSubject<String, Never>()
     
     lazy var citiesListChanged = _citiesListChanged.eraseToAnyPublisher()

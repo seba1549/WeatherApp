@@ -8,7 +8,7 @@
 import Foundation
 
 /// The minimum temperature observed over the past.
-struct TemperatureSummary: Decodable {
+struct TemperatureSummary: Decodable, Equatable {
     
     // MARK: - Properties
     

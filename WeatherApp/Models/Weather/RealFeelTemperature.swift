@@ -8,7 +8,7 @@
 import Foundation
 
 /// Patented AccuWeather RealFeel Temperature.
-struct RealFeelTemperature: Decodable {
+struct RealFeelTemperature: Decodable, Equatable {
     
     // MARK: - Properties
     

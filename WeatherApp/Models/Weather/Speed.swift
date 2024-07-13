@@ -8,7 +8,7 @@
 import Foundation
 
 /// Describes the wind speed occurring at the selected location.
-struct Speed: Decodable {
+struct Speed: Decodable, Equatable {
     
     // MARK: - Properties
     

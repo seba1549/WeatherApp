@@ -8,18 +8,18 @@
 import Combine
 import Foundation
 
-final class WeatherDataRepository {
+final class WeatherDataRepository: AnyWeatherDataRepository {
     
     // MARK: - Properties
     
-    private let networkingService = WeatherDataNetworkingService()
+    private let networkingService: AnyWeatherDataNetworkingService
     
     private(set) var weatherData: WeatherData?
     private var cancellables = [AnyCancellable]()
     
     // MARK: - Publishers
     
-    private lazy var weatherDataRequested = _weatherDataRequested.eraseToAnyPublisher()
+    lazy var weatherDataRequested = _weatherDataRequested.eraseToAnyPublisher()
     private lazy var _weatherDataRequested = PassthroughSubject<String, Never>()
     
     lazy var weatherDataFetched = _weatherDataFetched.eraseToAnyPublisher()
@@ -30,7 +30,8 @@ final class WeatherDataRepository {
     
     // MARK: - Lifecycle
     
-    init() {
+    init(networkingService: AnyWeatherDataNetworkingService) {
+        self.networkingService = networkingService
         bind()
     }
     
@@ -46,6 +47,11 @@ final class WeatherDataRepository {
         weatherDataRequested
             .sink { [weak self] cityKey in
                 guard let self else { return }
+                guard !cityKey.isEmpty else {
+                    weatherData = nil
+                    _downloadingErrorOccured.send()
+                    return
+                }
                 
                 networkingService.fetchWeatherData(cityKey: cityKey) { result in
                     switch result {
