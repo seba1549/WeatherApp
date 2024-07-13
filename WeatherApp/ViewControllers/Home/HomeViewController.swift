@@ -8,11 +8,13 @@
 import Combine
 import UIKit
 
+/// ViewController supporting the main application screen.
 final class HomeViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Properties
     
-    let citiesRepository: CitiesRepository
+    /// Cities repository.
+    let repository: CitiesRepository
     
     private var cancellables = [AnyCancellable]()
     
@@ -32,8 +34,8 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Lifecycle
     
-    init(citiesRepository: CitiesRepository) {
-        self.citiesRepository = citiesRepository
+    init(repository: CitiesRepository) {
+        self.repository = repository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -90,7 +92,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     private func bind() {
         viewContainer.view = createEmptyListView()
         
-        citiesRepository.citiesListChanged
+        repository.citiesListChanged
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 guard let self else { return }
@@ -100,9 +102,9 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
                     return
                 }
                 
-                if citiesRepository.cities.isEmpty, searchText.isEmpty {
+                if repository.cities.isEmpty, searchText.isEmpty {
                     viewContainer.view = createEmptyListView()
-                } else if !citiesRepository.cities.isEmpty, !searchText.isEmpty {
+                } else if !repository.cities.isEmpty, !searchText.isEmpty {
                     viewContainer.view = tableView
                     tableView.reloadData()
                 } else {
@@ -113,7 +115,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
             }
             .store(in: &cancellables)
         
-        citiesRepository.downloadingErrorOccured
+        repository.downloadingErrorOccured
             .sink { [weak self] in
                 guard let self else { return }
                 viewContainer.view = InformationView(headline: "Wystąpił błąd pobierania",
@@ -122,7 +124,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
             }
             .store(in: &cancellables)
         
-        citiesRepository.citiesAreDownloading
+        repository.citiesAreDownloading
             .sink { [weak self] in
                 guard let self else { return }
                 viewContainer.view = LoadingView()

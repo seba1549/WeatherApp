@@ -8,10 +8,12 @@
 import Foundation
 import UIKit
 
+/// View used as a cell in the list of cities.
 final class CityCell: UITableViewCell {
     
     // MARK: - Identifier
     
+    /// Cell identifier.
     static let identifier = "CityCell"
     
     // MARK: - Subviews

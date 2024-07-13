@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// The structure responsible for preparing the requests needed to make enquiries.
 struct URLRequestBuilder {
     
     // MARK: - Proeprties

@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let citiesRepository = CitiesRepository(networkingService: CitiesNetworkingService())
         
-        let mainViewController = HomeViewController(citiesRepository: citiesRepository)
+        let mainViewController = HomeViewController(repository: citiesRepository)
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
         guard let scene = (scene as? UIWindowScene) else { return }

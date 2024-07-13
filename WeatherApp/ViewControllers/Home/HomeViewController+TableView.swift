@@ -12,7 +12,7 @@ import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        citiesRepository.cities.count
+        repository.cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,12 +20,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.configureCell(with: self.citiesRepository.cities[indexPath.row])
+        cell.configureCell(with: repository.cities[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let city = citiesRepository.cities[indexPath.row]
+        let city = repository.cities[indexPath.row]
         let viewController = WeatherDetailsViewController(city: city)
         viewController.delegate = self
         

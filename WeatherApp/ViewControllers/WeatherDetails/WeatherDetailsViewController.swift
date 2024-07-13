@@ -16,6 +16,7 @@ final class WeatherDetailsViewController: UIViewController {
     private let repository = WeatherDataRepository(networkingService: WeatherDataNetworkingService())
     private let city: City
     
+    ///Delegate allowing communication with the weather preview.
     var delegate: WeatherDetailsDelegate?
     
     private var cancellables = [AnyCancellable]()

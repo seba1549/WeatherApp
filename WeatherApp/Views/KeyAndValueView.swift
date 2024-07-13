@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+/// A view used to represent a `key` and `value` pair.
 final class KeyAndValueView: UIView {
     
     // MARK: - Properties

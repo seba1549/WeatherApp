@@ -12,7 +12,7 @@ import Foundation
 extension HomeViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        citiesRepository.searchForCities(with: searchText)
+        repository.searchForCities(with: searchText)
     }
     
     // We use [[:alpha:]] because we want to be able to use the letters of all languages - not just Polish.

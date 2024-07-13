@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
+///View used to display the selected message.
 final class InformationView: UIView {
     
     // MARK: - Properties
     
     private let headline: String?
     private let subheadline: String?
+    
     private let systemImageName: AppIcon?
     private let imageSize: CGFloat = 50
     

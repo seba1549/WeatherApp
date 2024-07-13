@@ -13,6 +13,7 @@ enum AppIcon: String {
     /// Magnifying glass icon used in search engines etc.
     case searchLoop = "magnifyingglass"
     
+    /// Exclamation mark icon used in alerts, warnings etc.
     case exclamationMark = "exclamationmark"
     
 }

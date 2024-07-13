@@ -27,6 +27,9 @@ protocol AnyCitiesRepository {
     var citiesAreDownloading: AnyPublisher<Void, Never> { get set }
     
     /// The method triggers a search for cities matching the specified phrase.
+    ///
+    /// - Parameters:
+    /// - phrase: Phrase for which cities will be loaded from the resource.
     func searchForCities(with phrase: String)
     
 }

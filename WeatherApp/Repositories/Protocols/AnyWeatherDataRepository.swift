@@ -24,6 +24,9 @@ protocol AnyWeatherDataRepository {
     var downloadingErrorOccured: AnyPublisher<Void, Never> { get set }
     
     /// The method triggers a fetch of weather data matching the specified city key.
+    ///
+    /// - Parameters:
+    /// - cityKey: City key for which weather data will be loaded from the resource.
     func fetchWeatherData(for cityKey: String)
     
 }

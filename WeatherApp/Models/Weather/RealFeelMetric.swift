@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Includes information on values and units of measurement.
+/// Includes information on values and units of measurement.
 struct RealFeelMetric: Decodable, Equatable {
     
     // MARK: - Properties
