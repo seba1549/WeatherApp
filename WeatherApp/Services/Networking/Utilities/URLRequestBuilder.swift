@@ -10,15 +10,11 @@ import Foundation
 /// The structure responsible for preparing the requests needed to make enquiries.
 struct URLRequestBuilder {
     
-    // MARK: - Proeprties
-    
-    private static let urlProvider = URLProvider()
-    
     // MARK: - API
     
     /// Responsible for creating the request used to retrieve city data.
     static func createLocationsRequest(for searchText: String) -> URLRequest? {
-        let url = urlProvider.locationsURL
+        let url = URLProvider.locationsURL
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
         
         
@@ -34,7 +30,7 @@ struct URLRequestBuilder {
     
     /// Responsible for creating the request used to retrieve the weather data.
     static func createWeatherDataRequest(for cityKey: String) -> URLRequest? {
-        let url = urlProvider.createWeatherDataURL(with: cityKey)
+        let url = URLProvider.createWeatherDataURL(with: cityKey)
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
         
         
