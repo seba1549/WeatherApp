@@ -60,6 +60,10 @@
 		B96198572C427EA30038BB23 /* MockWeatherDataNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198562C427EA30038BB23 /* MockWeatherDataNetworkingService.swift */; };
 		B96198592C427F4D0038BB23 /* WeatherDataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198582C427F4D0038BB23 /* WeatherDataRepositoryTests.swift */; };
 		B961985B2C427F580038BB23 /* AnyWeatherDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961985A2C427F580038BB23 /* AnyWeatherDataRepository.swift */; };
+		B961985E2C443C450038BB23 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B961985C2C443C450038BB23 /* WeatherApp.xcdatamodeld */; };
+		B96198612C443D480038BB23 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198602C443D480038BB23 /* CoreDataService.swift */; };
+		B96198642C44403F0038BB23 /* CityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198632C44403F0038BB23 /* CityEntity.swift */; };
+		B96198672C4443740038BB23 /* AnyCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198662C4443740038BB23 /* AnyCoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +133,10 @@
 		B96198562C427EA30038BB23 /* MockWeatherDataNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWeatherDataNetworkingService.swift; sourceTree = "<group>"; };
 		B96198582C427F4D0038BB23 /* WeatherDataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataRepositoryTests.swift; sourceTree = "<group>"; };
 		B961985A2C427F580038BB23 /* AnyWeatherDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyWeatherDataRepository.swift; sourceTree = "<group>"; };
+		B961985D2C443C450038BB23 /* WeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherApp.xcdatamodel; sourceTree = "<group>"; };
+		B96198602C443D480038BB23 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		B96198632C44403F0038BB23 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEntity.swift; sourceTree = "<group>"; };
+		B96198662C4443740038BB23 /* AnyCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +160,7 @@
 		B96197B02C3EC8BA0038BB23 = {
 			isa = PBXGroup;
 			children = (
+				B961985C2C443C450038BB23 /* WeatherApp.xcdatamodeld */,
 				B96197BB2C3EC8BA0038BB23 /* WeatherApp */,
 				B961983F2C425AE30038BB23 /* WeatherAppTests */,
 				B96197BA2C3EC8BA0038BB23 /* Products */,
@@ -205,6 +214,7 @@
 		B96197D52C3ED6520038BB23 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B96198622C4440360038BB23 /* CoreData */,
 				B96198112C402EDB0038BB23 /* Weather */,
 				B96198102C402ECC0038BB23 /* Location */,
 			);
@@ -214,6 +224,7 @@
 		B96197DC2C3ED9AB0038BB23 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B961985F2C443D250038BB23 /* CoreData */,
 				B96197DD2C3ED9B30038BB23 /* Networking */,
 			);
 			path = Services;
@@ -403,6 +414,31 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		B961985F2C443D250038BB23 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B96198652C4443670038BB23 /* Protocols */,
+				B96198602C443D480038BB23 /* CoreDataService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B96198622C4440360038BB23 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B96198632C44403F0038BB23 /* CityEntity.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B96198652C4443670038BB23 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B96198662C4443740038BB23 /* AnyCoreDataService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,9 +548,12 @@
 				B96197D92C3ED7500038BB23 /* AdministrativeArea.swift in Sources */,
 				B96198172C405CD10038BB23 /* Metric.swift in Sources */,
 				B961981B2C405D190038BB23 /* RealFeelMetric.swift in Sources */,
+				B961985E2C443C450038BB23 /* WeatherApp.xcdatamodeld in Sources */,
 				B961982F2C4064380038BB23 /* WeatherDataRepository.swift in Sources */,
 				B96198372C419CE00038BB23 /* WeatherDataNetworkingService.swift in Sources */,
+				B96198672C4443740038BB23 /* AnyCoreDataService.swift in Sources */,
 				B961980C2C402B970038BB23 /* HomeViewController+WeatherDetailsDelegate.swift in Sources */,
+				B96198642C44403F0038BB23 /* CityEntity.swift in Sources */,
 				B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */,
 				B961982B2C405E3A0038BB23 /* Minimum.swift in Sources */,
 				B96197EF2C3EE97A0038BB23 /* HomeViewController+TableView.swift in Sources */,
@@ -546,6 +585,7 @@
 				B96197E22C3EDDEE0038BB23 /* AnyCitiesNetworkingService.swift in Sources */,
 				B96198392C41A0860038BB23 /* AnyWeatherDataNetworkingService.swift in Sources */,
 				B96198192C405CEB0038BB23 /* RealFeelTemperature.swift in Sources */,
+				B96198612C443D480038BB23 /* CoreDataService.swift in Sources */,
 				B96197BF2C3EC8BA0038BB23 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +888,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B961985C2C443C450038BB23 /* WeatherApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B961985D2C443C450038BB23 /* WeatherApp.xcdatamodel */,
+			);
+			currentVersion = B961985D2C443C450038BB23 /* WeatherApp.xcdatamodel */;
+			name = WeatherApp.xcdatamodeld;
+			path = /Users/sebastian.maludzinski/Developer/WeatherApp/WeatherApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B96197B12C3EC8BA0038BB23 /* Project object */;
 }

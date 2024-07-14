@@ -14,6 +14,7 @@ final class CitiesRepository: AnyCitiesRepository {
     // MARK: - Properties
     
     private let networkingService: AnyCitiesNetworkingService
+    private let coreDataService: AnyCoreDataService
     private(set) var cities = [City]()
     
     private var cancellables = [AnyCancellable]()
@@ -34,8 +35,10 @@ final class CitiesRepository: AnyCitiesRepository {
     
     // MARK: - Lifecycle
     
-    init(networkingService: AnyCitiesNetworkingService) {
+    init(networkingService: AnyCitiesNetworkingService,
+         coreDataService: AnyCoreDataService) {
         self.networkingService = networkingService
+        self.coreDataService = coreDataService
         bind()
     }
     
@@ -43,6 +46,15 @@ final class CitiesRepository: AnyCitiesRepository {
     
     func searchForCities(with phrase: String) {
         _userSearchedForCities.send(phrase)
+    }
+    
+    func addCityToSearchHistory(_ city: City) {
+        coreDataService.addCityToSearchHistory(city)
+    }
+    
+    func deleteSearchHistory() {
+        coreDataService.deleteSearchHistory()
+        cities = []
     }
     
     // MARK: - Methods
@@ -54,7 +66,7 @@ final class CitiesRepository: AnyCitiesRepository {
             .sink { [weak self] phrase in
                 guard let self = self else { return }
                 guard !phrase.isEmpty else {
-                    self.cities = []
+                    cities = coreDataService.fetchSearchHistory()
                     _citiesListChanged.send()
                     return
                 }
@@ -64,7 +76,7 @@ final class CitiesRepository: AnyCitiesRepository {
                 networkingService.fetchCities(phrase: phrase) { result in
                     switch result {
                     case let .success(cities):
-                        self.cities = cities
+                        self.cities = cities.sorted()
                         self._citiesListChanged.send()
                     case .failure:
                         self.cities = []

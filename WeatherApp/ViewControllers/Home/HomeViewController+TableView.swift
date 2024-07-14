@@ -26,6 +26,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = repository.cities[indexPath.row]
+        repository.addCityToSearchHistory(city)
         let viewController = WeatherDetailsViewController(city: city)
         viewController.delegate = self
         

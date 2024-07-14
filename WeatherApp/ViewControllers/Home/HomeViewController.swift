@@ -61,11 +61,15 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         bind()
         setupView()
+        
+        // At this point, we ask about search history.
+        repository.searchForCities(with: .empty)
     }
     
     // MARK: - Methods
     
     private func setupView() {
+        setupNavBar()
         setupTableView()
         
         view.backgroundColor = .secondarySystemBackground
@@ -91,6 +95,11 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         ])
     }
     
+    private func setupNavBar() {
+        let deleteSearchHistoryItem = UIBarButtonItem(title: "Usuń historię", style: .plain, target: self, action: #selector(deleteSearchHistory))
+        navigationItem.rightBarButtonItem = deleteSearchHistoryItem
+    }
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -102,8 +111,6 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func bind() {
-        presentEmptyListInformation()
-        
         repository.citiesListChanged
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
@@ -117,7 +124,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
                 
                 if repository.cities.isEmpty, searchText.isEmpty {
                     presentEmptyListInformation()
-                } else if !repository.cities.isEmpty, !searchText.isEmpty {
+                } else if !repository.cities.isEmpty {
                     viewContainer.view.addSubview(tableView)
                     tableView.widthAnchor.constraint(equalTo: viewContainer.view.widthAnchor).isActive = true
                     tableView.heightAnchor.constraint(equalTo: viewContainer.view.heightAnchor).isActive = true
@@ -163,7 +170,8 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     
     /// Presents a message about an empty list of cities.
     private func presentEmptyListInformation() {
-        presentInformationView(subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
+        presentInformationView(headline: "Nie masz nic w historii wyszukiwania.",
+                               subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
     }
     
     /// Presents a view of the information with the selected message.
@@ -172,6 +180,12 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         viewContainer.view.addSubview(informationView)
         informationView.centerXAnchor.constraint(equalTo: viewContainer.view.centerXAnchor).isActive = true
         informationView.centerYAnchor.constraint(equalTo: viewContainer.view.centerYAnchor).isActive = true
+    }
+    
+    @objc private func deleteSearchHistory() {
+        repository.deleteSearchHistory()
+        tableView.removeFromSuperview()
+        presentEmptyListInformation()
     }
     
 }

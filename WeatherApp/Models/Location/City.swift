@@ -8,7 +8,7 @@
 import Foundation
 
 /// Structure representing the city.
-struct City: Decodable, Equatable {
+struct City: Comparable, Decodable, Equatable {
     
     // MARK: - Properties
     
@@ -26,6 +26,12 @@ struct City: Decodable, Equatable {
     
     /// Rank of the city.
     let rank: Int
+    
+    // MARK: - API
+    
+    public static func < (lhs: City, rhs: City) -> Bool {
+        lhs.rank < rhs.rank
+    }
     
     // MARK: - CodingKeys
     
