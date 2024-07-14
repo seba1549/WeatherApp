@@ -13,10 +13,10 @@ final class InformationView: UIView {
     
     // MARK: - Properties
     
-    private let headline: String?
-    private let subheadline: String?
+    private var headline: String?
+    private var subheadline: String?
+    private var icon: AppIcon?
     
-    private let systemImageName: AppIcon?
     private let imageSize: CGFloat = 50
     
     // MARK: - Subviews
@@ -64,7 +64,7 @@ final class InformationView: UIView {
     init(headline: String? = nil, subheadline: String? = nil, systemImageName: AppIcon? = nil) {
         self.headline = headline
         self.subheadline = subheadline
-        self.systemImageName = systemImageName
+        self.icon = systemImageName
         
         super.init(frame: .zero)
         setupView()
@@ -74,13 +74,23 @@ final class InformationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - API
+    
+    /// Allows you to reconfigure the information view with other data.
+    func reconfigureView(headline: String? = nil, subheadline: String? = nil, icon: AppIcon? = nil) {
+        self.headline = headline
+        self.subheadline = subheadline
+        self.icon = icon
+        setupView()
+    }
+    
     // MARK: - Methods
     
     private func setupView() {
         addSubview(mainStack)
         
-        if let systemImageName {
-            imageView.image = UIImage(systemName: systemImageName.rawValue)
+        if let icon {
+            imageView.image = UIImage(systemName: icon.rawValue)
             mainStack.addArrangedSubview(imageContainer)
             imageContainer.addSubview(imageView)
             
@@ -90,6 +100,9 @@ final class InformationView: UIView {
             imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
             imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
             imageView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor).isActive = true
+        } else {
+            imageView.removeFromSuperview()
+            imageContainer.removeFromSuperview()
         }
         
         headlineLabel.text = headline

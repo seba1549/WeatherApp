@@ -32,6 +32,18 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         return searchBar
     }()
     
+    private lazy var informationView: InformationView = {
+        let view = InformationView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var loadingView: LoadingView = {
+        let loadingView = LoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        return loadingView
+    }()
+    
     // MARK: - Lifecycle
     
     init(repository: CitiesRepository) {
@@ -90,27 +102,30 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func bind() {
-        viewContainer.view = createEmptyListView()
+        presentEmptyListInformation()
         
         repository.citiesListChanged
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 guard let self else { return }
+                loadingView.removeFromSuperview()
                 
                 guard let searchText = searchBar.text else {
-                    viewContainer.view = createEmptyListView()
+                    presentEmptyListInformation()
                     return
                 }
                 
                 if repository.cities.isEmpty, searchText.isEmpty {
-                    viewContainer.view = createEmptyListView()
+                    presentEmptyListInformation()
                 } else if !repository.cities.isEmpty, !searchText.isEmpty {
-                    viewContainer.view = tableView
+                    viewContainer.view.addSubview(tableView)
+                    tableView.widthAnchor.constraint(equalTo: viewContainer.view.widthAnchor).isActive = true
+                    tableView.heightAnchor.constraint(equalTo: viewContainer.view.heightAnchor).isActive = true
                     tableView.reloadData()
                 } else {
-                    viewContainer.view = InformationView(headline: "Brak wyników",
-                                                         subheadline: "Brak wyników dla \"\(searchBar.text ?? .empty)\"",
-                                                         systemImageName: .searchLoop)
+                    presentInformationView(headline: "Brak wyników",
+                                           subheadline: "Brak wyników dla \"\(searchBar.text ?? .empty)\"",
+                                           icon: .searchLoop)
                 }
             }
             .store(in: &cancellables)
@@ -118,22 +133,41 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
         repository.downloadingErrorOccured
             .sink { [weak self] in
                 guard let self else { return }
-                viewContainer.view = InformationView(headline: "Wystąpił błąd pobierania",
-                                                     subheadline: "Spróbuj ponownie później",
-                                                     systemImageName: .exclamationMark)
+                presentInformationView(headline: "Wystąpił błąd pobierania",
+                                       subheadline: "Spróbuj ponownie później",
+                                       icon: .exclamationMark)
             }
             .store(in: &cancellables)
         
         repository.citiesAreDownloading
             .sink { [weak self] in
                 guard let self else { return }
-                viewContainer.view = LoadingView()
+                informationView.removeFromSuperview()
+                viewContainer.view.addSubview(loadingView)
+                loadingView.centerXAnchor.constraint(equalTo: viewContainer.view.centerXAnchor).isActive = true
+                loadingView.centerYAnchor.constraint(equalTo: viewContainer.view.centerYAnchor).isActive = true
+            }
+            .store(in: &cancellables)
+        
+        repository.userSearchedForCities
+            .sink { [weak self] _ in
+                guard let self else { return }
+                tableView.removeFromSuperview()
             }
             .store(in: &cancellables)
     }
     
-    private func createEmptyListView() -> UIView {
-        InformationView(subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
+    /// Presents a message about an empty list of cities.
+    private func presentEmptyListInformation() {
+        presentInformationView(subheadline: "Zacznij wpisywać nazwę miejscowości aby rozpocząć wyszukiwanie.")
+    }
+    
+    /// Presents a view of the information with the selected message.
+    private func presentInformationView(headline: String? = nil, subheadline: String? = nil, icon: AppIcon? = nil) {
+        informationView.reconfigureView(headline: headline, subheadline: subheadline, icon: icon)
+        viewContainer.view.addSubview(informationView)
+        informationView.centerXAnchor.constraint(equalTo: viewContainer.view.centerXAnchor).isActive = true
+        informationView.centerYAnchor.constraint(equalTo: viewContainer.view.centerYAnchor).isActive = true
     }
     
 }

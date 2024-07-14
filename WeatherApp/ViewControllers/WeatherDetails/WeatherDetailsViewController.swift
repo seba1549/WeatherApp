@@ -13,7 +13,10 @@ final class WeatherDetailsViewController: UIViewController {
     
     // MARK: - Properties
     
+    /// Weather data repository.
     private let repository = WeatherDataRepository(networkingService: WeatherDataNetworkingService())
+    
+    /// Information on the chosen city.
     private let city: City
     
     ///Delegate allowing communication with the weather preview.
