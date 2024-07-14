@@ -87,7 +87,8 @@ final class WeatherDetailsViewController: UIViewController {
     
     private func configureViewWithWeatherDate() {
         guard let weatherData = repository.weatherData else { return }
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
             let detailsView = WeatherDetailsView(city: city, weatherData: weatherData)
             detailsView.translatesAutoresizingMaskIntoConstraints = false
             loadingView.removeFromSuperview()
