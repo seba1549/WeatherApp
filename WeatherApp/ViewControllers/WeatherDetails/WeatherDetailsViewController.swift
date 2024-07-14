@@ -29,6 +29,12 @@ final class WeatherDetailsViewController: UIViewController {
         return viewController
     }()
     
+    private lazy var loadingView: LoadingView = {
+        let loadingView = LoadingView()
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        return loadingView
+    }()
+    
     // MARK: - Lifecycle
     
     init(city: City) {
@@ -66,7 +72,9 @@ final class WeatherDetailsViewController: UIViewController {
             viewContainer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        viewContainer.view = LoadingView()
+        viewContainer.view.addSubview(loadingView)
+        loadingView.centerXAnchor.constraint(equalTo: viewContainer.view.centerXAnchor).isActive = true
+        loadingView.centerYAnchor.constraint(equalTo: viewContainer.view.centerYAnchor).isActive = true
     }
     
     private func setupNavBar() {
@@ -77,7 +85,12 @@ final class WeatherDetailsViewController: UIViewController {
     private func configureViewWithWeatherDate() {
         guard let weatherData = repository.weatherData else { return }
         DispatchQueue.main.sync {
-            viewContainer.view = WeatherDetailsView(city: city, weatherData: weatherData)
+            let detailsView = WeatherDetailsView(city: city, weatherData: weatherData)
+            detailsView.translatesAutoresizingMaskIntoConstraints = false
+            loadingView.removeFromSuperview()
+            viewContainer.view.addSubview(detailsView)
+            
+            detailsView.widthAnchor.constraint(equalTo: viewContainer.view.widthAnchor).isActive = true
         }
     }
 

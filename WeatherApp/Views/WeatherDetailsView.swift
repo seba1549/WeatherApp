@@ -127,9 +127,8 @@ final class WeatherDetailsView: UIView {
         
         NSLayoutConstraint.activate([
             mainStack.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            mainStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            mainStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            mainStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            mainStack.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor, constant: -20),
+            mainStack.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
     
