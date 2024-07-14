@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol describing the networking class for cities.
 protocol AnyCitiesNetworkingService {
     
     /// Method to load a list of cities from a resource.

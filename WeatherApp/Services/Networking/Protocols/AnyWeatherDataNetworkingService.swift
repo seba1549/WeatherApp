@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Protocol describing the networking class for weather data.
 protocol AnyWeatherDataNetworkingService {
     
     /// Method to load a weather data from a resource.

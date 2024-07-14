@@ -11,6 +11,7 @@ import XCTest
 
 @testable import WeatherApp
 
+/// Class containing tests for `CitiesRepository`.
 final class CitiesRepositoryTests: XCTestCase {
 
     // MARK: - Properties

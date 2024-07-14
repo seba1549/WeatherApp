@@ -19,7 +19,7 @@ final class WeatherDataNetworkingService: AnyWeatherDataNetworkingService {
             return
         }
         
-        URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard error == nil,
                   let data = data else {
                 os_log("WeatherDataNetworkingService error:", error?.localizedDescription ?? .empty)

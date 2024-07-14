@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 
+/// Repository responsible for providing the relevant weather data..
 final class WeatherDataRepository: AnyWeatherDataRepository {
     
     // MARK: - Properties
@@ -63,47 +64,8 @@ final class WeatherDataRepository: AnyWeatherDataRepository {
                         self._downloadingErrorOccured.send()
                     }
                 }
-                
-//                weatherData = createMockWeatherData()
-//                _weatherDataFetched.send()
             }
             .store(in: &cancellables)
-    }
-    
-    // TODO: - To będzie do usunięcia kiedy powstanie warstwa networkingu.
-    private func createMockWeatherData() -> WeatherData {
-        WeatherData(
-            weatherText: "Zachmurzenie duże",
-            relativeHumidity: 52,
-            cloudCover: 76,
-            temperature: Temperature(
-                metric: Metric(value: 7.9, unit: "C")
-            ),
-            realFeelTemperature: RealFeelTemperature(
-                metric: RealFeelMetric(value: 30.5, unit: "C")
-            ),
-            wind: Wind(
-                speed: Speed(
-                    metric: Metric(value: 12.6, unit: "km/h")
-                )
-            ),
-            visibility: Visibility(
-                metric: Metric(value: 24.1, unit: "km")
-            ),
-            pressure: Pressure(
-                metric: Metric(value: 1015, unit: "mb")
-            ),
-            temperatureSummary: TemperatureSummary(
-                past24HourRange: TemperatureRange(
-                    minimum: Minimum(
-                        metric: Metric(value: 18.7, unit: "C")
-                    ),
-                    maximum: Maximum(
-                        metric: Metric(value: 33.6, unit: "C")
-                    )
-                )
-            )
-        )
     }
     
 }

@@ -131,15 +131,18 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
             .store(in: &cancellables)
         
         repository.downloadingErrorOccured
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 guard let self else { return }
+                loadingView.removeFromSuperview()
                 presentInformationView(headline: "Wystąpił błąd pobierania",
                                        subheadline: "Spróbuj ponownie później",
-                                       icon: .exclamationMark)
+                                       icon: .xMark)
             }
             .store(in: &cancellables)
         
         repository.citiesAreDownloading
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] in
                 guard let self else { return }
                 informationView.removeFromSuperview()
@@ -150,6 +153,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
             .store(in: &cancellables)
         
         repository.userSearchedForCities
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self else { return }
                 tableView.removeFromSuperview()
@@ -163,7 +167,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     }
     
     /// Presents a view of the information with the selected message.
-    private func presentInformationView(headline: String? = nil, subheadline: String? = nil, icon: AppIcon? = nil) {
+    private func presentInformationView(headline: String? = nil, subheadline: String? = nil, icon: IconType? = nil) {
         informationView.reconfigureView(headline: headline, subheadline: subheadline, icon: icon)
         viewContainer.view.addSubview(informationView)
         informationView.centerXAnchor.constraint(equalTo: viewContainer.view.centerXAnchor).isActive = true

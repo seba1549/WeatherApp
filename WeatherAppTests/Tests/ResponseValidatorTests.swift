@@ -10,6 +10,7 @@ import XCTest
 
 @testable import WeatherApp
 
+/// Class containing tests for `ResponseValidator`.
 final class ResponseValidatorTests: XCTestCase {
     
     // MARK: - Tests

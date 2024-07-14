@@ -23,7 +23,7 @@
 		B96197EF2C3EE97A0038BB23 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197EE2C3EE97A0038BB23 /* HomeViewController+TableView.swift */; };
 		B96197F22C3EEA7F0038BB23 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F12C3EEA7F0038BB23 /* CityCell.swift */; };
 		B96197F82C3F1AEC0038BB23 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F72C3F1AEC0038BB23 /* InformationView.swift */; };
-		B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F92C3FD7AB0038BB23 /* AppIcon.swift */; };
+		B96197FA2C3FD7AB0038BB23 /* IconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197F92C3FD7AB0038BB23 /* IconType.swift */; };
 		B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */; };
 		B96197FF2C3FF3250038BB23 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96197FE2C3FF3250038BB23 /* URLProvider.swift */; };
 		B96198012C3FF3550038BB23 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198002C3FF3550038BB23 /* URLRequestBuilder.swift */; };
@@ -91,7 +91,7 @@
 		B96197EE2C3EE97A0038BB23 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
 		B96197F12C3EEA7F0038BB23 /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		B96197F72C3F1AEC0038BB23 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
-		B96197F92C3FD7AB0038BB23 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		B96197F92C3FD7AB0038BB23 /* IconType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconType.swift; sourceTree = "<group>"; };
 		B96197FB2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		B96197FE2C3FF3250038BB23 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		B96198002C3FF3550038BB23 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B96197DF2C3EDD690038BB23 /* Constants.swift */,
-				B96197F92C3FD7AB0038BB23 /* AppIcon.swift */,
+				B96197F92C3FD7AB0038BB23 /* IconType.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 				B96197FC2C3FE8AB0038BB23 /* HomeViewController+SearchBar.swift in Sources */,
 				B96197E42C3EDEAA0038BB23 /* CitiesNetworkingService.swift in Sources */,
 				B96198332C4154400038BB23 /* KeyAndValueView.swift in Sources */,
-				B96197FA2C3FD7AB0038BB23 /* AppIcon.swift in Sources */,
+				B96197FA2C3FD7AB0038BB23 /* IconType.swift in Sources */,
 				B961982D2C405E630038BB23 /* Maximum.swift in Sources */,
 				B96198012C3FF3550038BB23 /* URLRequestBuilder.swift in Sources */,
 				B96197E92C3EE03D0038BB23 /* NetworkingError.swift in Sources */,

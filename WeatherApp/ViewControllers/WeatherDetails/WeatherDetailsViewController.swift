@@ -103,6 +103,7 @@ final class WeatherDetailsViewController: UIViewController {
     
     private func bind() {
         repository.weatherDataFetched
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] weatherData in
                 guard let self else { return }
                 configureViewWithWeatherDate()

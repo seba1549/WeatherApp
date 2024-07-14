@@ -15,7 +15,7 @@ final class InformationView: UIView {
     
     private var headline: String?
     private var subheadline: String?
-    private var icon: AppIcon?
+    private var icon: IconType?
     
     private let imageSize: CGFloat = 50
     
@@ -61,7 +61,7 @@ final class InformationView: UIView {
     
     // MARK: - Lifecycle
     
-    init(headline: String? = nil, subheadline: String? = nil, systemImageName: AppIcon? = nil) {
+    init(headline: String? = nil, subheadline: String? = nil, systemImageName: IconType? = nil) {
         self.headline = headline
         self.subheadline = subheadline
         self.icon = systemImageName
@@ -77,7 +77,7 @@ final class InformationView: UIView {
     // MARK: - API
     
     /// Allows you to reconfigure the information view with other data.
-    func reconfigureView(headline: String? = nil, subheadline: String? = nil, icon: AppIcon? = nil) {
+    func reconfigureView(headline: String? = nil, subheadline: String? = nil, icon: IconType? = nil) {
         self.headline = headline
         self.subheadline = subheadline
         self.icon = icon

@@ -60,9 +60,6 @@ final class CitiesRepository: AnyCitiesRepository {
                 }
                 
                 _citiesAreDownloading.send()
-//                self.cities = [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
-//                               City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
-//                self._citiesListChanged.send()
                 
                 networkingService.fetchCities(phrase: phrase) { result in
                     switch result {

@@ -8,12 +8,12 @@
 import Foundation
 
 /// Enum containing the icons used in the application.
-enum AppIcon: String {
+enum IconType: String {
     
     /// Magnifying glass icon used in search engines etc.
     case searchLoop = "magnifyingglass"
     
-    /// Exclamation mark icon used in alerts, warnings etc.
-    case exclamationMark = "exclamationmark"
+    /// `X` mark icon used in alerts, warnings etc.
+    case xMark = "xmark"
     
 }

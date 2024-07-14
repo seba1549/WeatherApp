@@ -10,6 +10,7 @@ import XCTest
 
 @testable import WeatherApp
 
+/// Class containing tests for `URLRequestBuilder`.
 final class URLRequestBuilderTests: XCTestCase {
     
     // MARK: - Tests

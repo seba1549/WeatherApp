@@ -8,12 +8,15 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    // MARK: - Properties
+    
     var window: UIWindow?
-
+    
+    // MARK: - API
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let citiesRepository = CitiesRepository(networkingService: CitiesNetworkingService())
-        
         let mainViewController = HomeViewController(repository: citiesRepository)
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
