@@ -21,7 +21,7 @@ final class URLRequestBuilderTests: XCTestCase {
         do {
             let queryItems = try getQueryItemsFrom(urlRequest)
             XCTAssertTrue(queryItems.count == 3)
-            XCTAssertTrue(queryItems.contains(where: { $0.name == "apikey" && $0.value == "xgozIFzmA3lCWQZzIdkBuEM1G8C6Z6Vi" })) // To trzeba jakoś zamockować
+            XCTAssertTrue(queryItems.contains(where: { $0.name == "apikey" && $0.value == "xgozIFzmA3lCWQZzIdkBuEM1G8C6Z6Vi" }))
             XCTAssertTrue(queryItems.contains(where: { $0.name == "language" && $0.value == "pl" }))
             XCTAssertTrue(queryItems.contains(where: { $0.name == "q" && $0.value == phrase }))
         } catch {
@@ -36,7 +36,7 @@ final class URLRequestBuilderTests: XCTestCase {
         do {
             let queryItems = try getQueryItemsFrom(urlRequest)
             XCTAssertTrue(queryItems.count == 3)
-            XCTAssertTrue(queryItems.contains(where: { $0.name == "apikey" && $0.value == "xgozIFzmA3lCWQZzIdkBuEM1G8C6Z6Vi" })) // To trzeba jakoś zamockować
+            XCTAssertTrue(queryItems.contains(where: { $0.name == "apikey" && $0.value == "xgozIFzmA3lCWQZzIdkBuEM1G8C6Z6Vi" }))
             XCTAssertTrue(queryItems.contains(where: { $0.name == "language" && $0.value == "pl" }))
             XCTAssertTrue(queryItems.contains(where: { $0.name == "details" && $0.value == "true" }))
         } catch {

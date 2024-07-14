@@ -57,6 +57,14 @@ final class WeatherDetailsView: UIView {
         return label
     }()
     
+    private var separatorView: UIView {
+        let view = UIView()
+        view.backgroundColor = .secondaryLabel
+        view.layer.opacity = 0.3
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        return view
+    }
+    
     private lazy var weatherTextLabel = createInformationLabel()
     private lazy var minAndMaxTemperatureLabel = createInformationLabel()
     
@@ -67,7 +75,7 @@ final class WeatherDetailsView: UIView {
         stack.isLayoutMarginsRelativeArrangement = true
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = 15
+        stack.spacing = 10
         stack.layoutMargins = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         stack.backgroundColor = .tertiarySystemBackground
         stack.layer.cornerRadius = 10
@@ -108,12 +116,12 @@ final class WeatherDetailsView: UIView {
         generalInformationStack.addArrangedSubview(minAndMaxTemperatureLabel)
         
         mainStack.addArrangedSubview(secondaryInformationStack)
-        secondaryInformationStack.addArrangedSubview(realFeelTemperatureView)
-        secondaryInformationStack.addArrangedSubview(cloudCoverView)
-        secondaryInformationStack.addArrangedSubview(relativeHumidityView)
-        secondaryInformationStack.addArrangedSubview(windView)
-        secondaryInformationStack.addArrangedSubview(visibilityView)
-        secondaryInformationStack.addArrangedSubview(pressureView)
+        addArrangedSubview(to: secondaryInformationStack, view: realFeelTemperatureView)
+        addArrangedSubview(to: secondaryInformationStack, view: cloudCoverView)
+        addArrangedSubview(to: secondaryInformationStack, view: relativeHumidityView)
+        addArrangedSubview(to: secondaryInformationStack, view: windView)
+        addArrangedSubview(to: secondaryInformationStack, view: visibilityView)
+        addArrangedSubview(to: secondaryInformationStack, view: pressureView, addSeparator: false)
         
         mainStack.addArrangedSubview(UIView())
         
@@ -147,11 +155,20 @@ final class WeatherDetailsView: UIView {
         pressureView.configureView(key: "Ciśnienie", value: weatherData.formattedPressure)
     }
     
+    /// Allows to create a information label view.
     private func createInformationLabel() -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
+    }
+    
+    /// Allows the view to be added to the stack along with a separator.
+    private func addArrangedSubview(to stack: UIStackView, view: UIView, addSeparator: Bool = true) {
+        stack.addArrangedSubview(view)
+        if addSeparator {
+            stack.addArrangedSubview(separatorView)
+        }
     }
     
 }

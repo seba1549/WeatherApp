@@ -31,6 +31,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let navigationController = UINavigationController(rootViewController: viewController)
         showDetailViewController(navigationController, sender: .none)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

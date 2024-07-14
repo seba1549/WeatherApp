@@ -20,7 +20,7 @@ final class HomeViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Subviews
     
-    private lazy var tableView = UITableView()
+    lazy var tableView = UITableView()
     private lazy var viewContainer = UIViewController()
     
     lazy var searchBar: UISearchBar = {

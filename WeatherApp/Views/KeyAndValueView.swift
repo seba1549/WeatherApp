@@ -26,7 +26,7 @@ final class KeyAndValueView: UIView {
     
     private lazy var keyLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
