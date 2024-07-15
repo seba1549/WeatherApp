@@ -32,4 +32,13 @@ protocol AnyCitiesRepository {
     /// - phrase: Phrase for which cities will be loaded from the resource.
     func searchForCities(with phrase: String)
     
+    /// Adds the city to the search history.
+    ///
+    /// - Parameters:
+    /// - city: A city to be added to history.
+    func addCityToSearchHistory(_ city: City)
+    
+    /// Allows you to delete your search history.
+    func deleteSearchHistory()
+    
 }

@@ -64,6 +64,9 @@
 		B96198612C443D480038BB23 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198602C443D480038BB23 /* CoreDataService.swift */; };
 		B96198642C44403F0038BB23 /* CityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198632C44403F0038BB23 /* CityEntity.swift */; };
 		B96198672C4443740038BB23 /* AnyCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198662C4443740038BB23 /* AnyCoreDataService.swift */; };
+		B961986A2C444DE30038BB23 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96198692C444DE30038BB23 /* TestCoreDataStack.swift */; };
+		B961986C2C444E4A0038BB23 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961986B2C444E4A0038BB23 /* CoreDataServiceTests.swift */; };
+		B961986E2C44FCC20038BB23 /* MockCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961986D2C44FCC20038BB23 /* MockCoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +140,9 @@
 		B96198602C443D480038BB23 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B96198632C44403F0038BB23 /* CityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityEntity.swift; sourceTree = "<group>"; };
 		B96198662C4443740038BB23 /* AnyCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCoreDataService.swift; sourceTree = "<group>"; };
+		B96198692C444DE30038BB23 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		B961986B2C444E4A0038BB23 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		B961986D2C44FCC20038BB23 /* MockCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +384,7 @@
 		B961983F2C425AE30038BB23 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B96198682C444DD40038BB23 /* Utilities */,
 				B961984E2C4267300038BB23 /* Mocks */,
 				B961984D2C42672B0038BB23 /* Tests */,
 			);
@@ -392,6 +399,7 @@
 				B961984B2C42652C0038BB23 /* ResponseValidatorTests.swift */,
 				B96198542C42720D0038BB23 /* CitiesRepositoryTests.swift */,
 				B96198582C427F4D0038BB23 /* WeatherDataRepositoryTests.swift */,
+				B961986B2C444E4A0038BB23 /* CoreDataServiceTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -401,6 +409,7 @@
 			children = (
 				B96198522C4270F20038BB23 /* MockCitiesNetworkingService.swift */,
 				B96198562C427EA30038BB23 /* MockWeatherDataNetworkingService.swift */,
+				B961986D2C44FCC20038BB23 /* MockCoreDataService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -437,6 +446,14 @@
 				B96198662C4443740038BB23 /* AnyCoreDataService.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B96198682C444DD40038BB23 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B96198692C444DE30038BB23 /* TestCoreDataStack.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,10 +611,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B961986C2C444E4A0038BB23 /* CoreDataServiceTests.swift in Sources */,
 				B96198572C427EA30038BB23 /* MockWeatherDataNetworkingService.swift in Sources */,
 				B961984A2C425E270038BB23 /* URLRequestBuilderTests.swift in Sources */,
 				B96198552C42720D0038BB23 /* CitiesRepositoryTests.swift in Sources */,
+				B961986A2C444DE30038BB23 /* TestCoreDataStack.swift in Sources */,
 				B96198482C425C540038BB23 /* URLProviderTests.swift in Sources */,
+				B961986E2C44FCC20038BB23 /* MockCoreDataService.swift in Sources */,
 				B96198532C4270F20038BB23 /* MockCitiesNetworkingService.swift in Sources */,
 				B961984C2C42652C0038BB23 /* ResponseValidatorTests.swift in Sources */,
 				B96198592C427F4D0038BB23 /* WeatherDataRepositoryTests.swift in Sources */,

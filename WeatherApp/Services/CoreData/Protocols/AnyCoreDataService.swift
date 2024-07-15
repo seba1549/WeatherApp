@@ -5,10 +5,13 @@
 //  Created by Sebastian Maludziński on 14/07/2024.
 //
 
+import CoreData
 import Foundation
 
 /// A protocol describing the class that manages the coredata.
 protocol AnyCoreDataService {
+    
+    var containerPersistent: NSPersistentContainer { get }
     
     /// Allows you to load your search history.
     func fetchSearchHistory() -> [City]

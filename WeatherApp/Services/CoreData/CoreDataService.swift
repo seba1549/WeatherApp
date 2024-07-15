@@ -14,15 +14,13 @@ final class CoreDataService: AnyCoreDataService {
     
     // MARK: - Properties
     
-    private lazy var containerPersistent: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "WeatherApp")
-        container.loadPersistentStores { (description, error) in
-            if let error = error {
-                print("Error: \(error)")
-            }
-        }
-        return container
-    }()
+    let containerPersistent: NSPersistentContainer
+    
+    // MARK: - Lifecycle
+    
+    init(containerPersistent: NSPersistentContainer) {
+        self.containerPersistent = containerPersistent
+    }
     
     // MARK: - API
     
@@ -46,7 +44,8 @@ final class CoreDataService: AnyCoreDataService {
     
     func addCityToSearchHistory(_ city: City) {
         guard !fetchSearchHistory().contains(where: { $0.key == city.key }) else { return }
-        containerPersistent.performBackgroundTask { context in
+        let context = containerPersistent.viewContext
+        context.perform {
             let item = CityEntity(context: context)
             item.areaName = city.area.name
             item.countryName = city.country.name
@@ -61,8 +60,9 @@ final class CoreDataService: AnyCoreDataService {
     func deleteSearchHistory() {
         do {
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "CityEntity"))
-            try containerPersistent.viewContext.execute(deleteRequest)
-            saveData(context: containerPersistent.viewContext)
+            let context = containerPersistent.viewContext
+            try context.execute(deleteRequest)
+            saveData(context: context)
         } catch let error {
             os_log("CoreDataService error:", error.localizedDescription)
         }

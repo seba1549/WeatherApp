@@ -5,7 +5,9 @@
 //  Created by Sebastian Maludziński on 10/07/2024.
 //
 
+import CoreData
 import UIKit
+import OSLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -16,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - API
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let coreDataService = CoreDataService()
+        let coreDataService = CoreDataService(containerPersistent: createPersistentContainer())
         let citiesRepository = CitiesRepository(networkingService: CitiesNetworkingService(),
                                                 coreDataService: coreDataService)
         let mainViewController = HomeViewController(repository: citiesRepository)
@@ -26,6 +28,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
+    }
+    
+    // MARK: - Methods
+    
+    private func createPersistentContainer() -> NSPersistentContainer {
+        let container = NSPersistentContainer(name: "WeatherApp")
+        container.loadPersistentStores { (description, error) in
+            if let error = error {
+                os_log("CoreDataService error:", error.localizedDescription)
+            }
+        }
+        
+        return container
     }
     
 }

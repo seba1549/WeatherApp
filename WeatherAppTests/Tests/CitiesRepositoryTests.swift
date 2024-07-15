@@ -18,19 +18,24 @@ final class CitiesRepositoryTests: XCTestCase {
     
     private var sut: AnyCitiesRepository!
     private var networkingService: MockCitiesNetworkingService!
+    private var coreDataService: MockCoreDataService!
     private var cancellables = [AnyCancellable]()
     
     // MARK: - Lifecycle
     
     override func setUp() {
         let networkingService = MockCitiesNetworkingService()
-        sut = CitiesRepository(networkingService: networkingService)
+        let coreDataStack = TestCoreDataStack()
+        coreDataService = MockCoreDataService(containerPersistent: coreDataStack.persistentContainer)
+        sut = CitiesRepository(networkingService: networkingService,
+                               coreDataService: coreDataService)
         self.networkingService = networkingService
         cancellables = [AnyCancellable]()
     }
     
     override func tearDown() {
         networkingService = nil
+        coreDataService = nil
         sut = nil
         cancellables = [AnyCancellable]()
     }
@@ -84,6 +89,34 @@ final class CitiesRepositoryTests: XCTestCase {
         sut.searchForCities(with: "")
         
         wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(sut.cities, [])
+    }
+    
+    func test_addCityToSearchHistory() {
+        let city = createMockCity()
+        sut.addCityToSearchHistory(city)
+        XCTAssertTrue(coreDataService.addCityToSearchHistoryCalled)
+    }
+    
+    func test_deleteSearchHistory() {
+        let expectation = XCTestExpectation(description: "citiesListChanged")
+        let phrase = "Paryż"
+        
+        networkingService.citiesToReturn = createMockCities()
+        sut.citiesListChanged
+            .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        sut.searchForCities(with: phrase)
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(sut.cities, createMockCities())
+        
+        sut.deleteSearchHistory()
+        
+        XCTAssertTrue(coreDataService.deleteSearchHistoryCalled)
         XCTAssertEqual(sut.cities, [])
     }
     
@@ -150,6 +183,14 @@ final class CitiesRepositoryTests: XCTestCase {
     private func createMockCities() -> [City] {
         [City(area: AdministrativeArea(name: "Paryż"), country: Country(name: "Francja"), key: "2684470", name: "Paryż", rank: 20),
          City(area: AdministrativeArea(name: "Kujawsko-Pomorskie"), country: Country(name: "Polska"), key: "2714049", name: "Paryż", rank: 85)]
+    }
+    
+    private func createMockCity() -> City {
+        City(area: AdministrativeArea(name: "Małopolska"),
+             country: Country(name: "Polska"),
+             key: "Kraków",
+             name: "342567",
+             rank: 85)
     }
     
 }
